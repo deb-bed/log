@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>PWA Logowanie</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            background: url('https://i.imgur.com/pXPzww.jpeg') no-repeat center center fixed;
+            background-size: 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container label {
+            display: block;
+            color: gray;
+            margin-bottom: 5px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container a {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <label for="password">Hasło</label>
+        <input type="password" id="password" placeholder="Wpisz hasło">
+        <a href="#">Nie pamiętasz hasła?</a>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(reg => console.log('Service Worker zarejestrowany', reg))
+                .catch(err => console.error('Błąd rejestracji Service Workera', err));
+        }
+    </script>
+</body>
+</html>
